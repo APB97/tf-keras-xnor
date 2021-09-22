@@ -11,13 +11,14 @@ def main():
     model = train_model(inputs, desired_output)
     evaluate(model, inputs, desired_output)
     print_predictions(model, inputs, desired_output)
-    model.save('model/XNOR.h5')
+    model.save(args.model_out)
 
 
 def parse_args():
     parser = ArgumentParser()
     parser.add_argument('--dataset', help='csv file with inputs and desired outputs')
     parser.add_argument('--data_delimiter', help='delimiter in dataset csv file')
+    parser.add_argument('--model_out', help='model destination file or directory')
     args = parser.parse_args()
     return args
 
